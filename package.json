@@ -1,0 +1,13 @@
+{
+  "name": "imperative",
+  "description": "Command comprehension",
+  "version": "0.0.1",
+  "dependencies": {
+    "underscore": "*",
+    "string": "*"
+  },
+  "author": {
+    "name": "Ryan Gaus",
+    "twitter": "@rgausnet"
+  }
+}

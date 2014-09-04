@@ -1,0 +1,25 @@
+{
+  "categories": [
+
+
+    {
+      "length": {
+        "lessThanEqual": 2
+      },
+      "then": {
+        "value": ""
+      }
+    },
+
+    {
+      "value": {
+        "equalTo": "the"
+      },
+      "then": {
+        "value": ""
+      }
+    }
+
+
+  ]
+}
