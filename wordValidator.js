@@ -13,6 +13,9 @@ var _VALIDATION_TYPES = {
   },
   value: {
     type: "string"
+  },
+  word: {
+    type: "array"
   }
 }
 
@@ -111,6 +114,44 @@ module.exports.validateFilter = function(words, index, validator) {
       }
 
     }
+
+    // array validation
+    if ( _VALIDATION_TYPES[validation].type == "array") {
+
+      // get index specified
+      i = index + validator[validation].index || null;
+
+      // equalTo: property is equal to something else
+      if (validator[validation].equalTo &&
+        words[i] != validator[validation].equalTo) {
+          status = false;
+          return;
+      }
+
+      // notEqualTo: property is not equal to something else
+      if (validator[validation].notEqualTo &&
+        words[i] == validator[validation].notEqualTo) {
+          status = false;
+          return;
+      }
+
+      // ends: strings ends with a substring
+      if (validator[validation].ends &&
+        !S(words[i]).endsWith(validator[validation].ends) ) {
+          status = false;
+          return;
+      }
+
+      // starts: strings starts with a substring
+      if (validator[validation].starts &&
+        !S(words[i]).startsWith(validator[validation].starts) ) {
+          status = false;
+          return;
+      }
+
+    }
+
+
 
 
   });

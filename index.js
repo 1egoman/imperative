@@ -90,7 +90,6 @@ var phrase = function(textual) {
     // for each word
     _.each(words, function(word, index) {
 
-
       // look through patterns
       _.each(IDENT, function(identifier) {
 
