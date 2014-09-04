@@ -18,8 +18,34 @@
       "then": {
         "value": ""
       }
-    }
+    },
 
+    {
+      "value": {
+        "equalTo": "time"
+      },
+      "then": {
+        "means": "TIME"
+      }
+    },
+
+    {
+      "value": {
+        "equalTo": "yes"
+      },
+      "then": {
+        "means": "BOOLEAN.TRUE"
+      }
+    },
+
+    {
+      "value": {
+        "equalTo": "no"
+      },
+      "then": {
+        "means": "BOOLEAN.FALSE"
+      }
+    }
 
   ]
 }

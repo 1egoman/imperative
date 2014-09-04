@@ -1,5 +1,5 @@
 /**
-  imperative/index.js (https://github.com/1egoman/que)
+  imperative/objectFragment.js (https://github.com/1egoman/que)
   This file contains the objectFragment, which is a key
   element in parsing user queries
 */
@@ -35,9 +35,11 @@ module.exports = function(wordList) {
         if ( wV.validateFilter(word, cat) ) {
 
           // apply the filter
-          cat.then.value.length ?
-            self.words[wct] = cat.then.value :
+          if (cat.then.value !== undefined && cat.then.value.length == 0) {
             self.words[wct] = undefined;
+          } else {
+            self.words[wct] = cat.then;
+          }
         }
 
       });

@@ -41,6 +41,14 @@ var phrase = function(textual) {
       return i.prob;
     });
 
+    // is there even a verb in the sentence?
+    if (mostLikelyVerb.prob === 0)
+        mostLikelyVerb = {
+          word: undefined,
+          prob: 0,
+          possibles: {}
+        }
+
     // get our new verb's index, and from that determine subject and object
     index = words.indexOf(mostLikelyVerb.word);
 
@@ -121,10 +129,17 @@ var phrase = function(textual) {
 
 var tests = function(){
 
-  t = "what is the bb hh time?";
-  console.log("phrase:", t);
-  p = new phrase(t);
-  console.log(p.getParts())
+  // test phrases
+  PHR = [
+    "what is the time in london?",
+    "time in london"
+  ]
+
+  _.each(PHR, function(t) {
+    console.log("phrase:", t);
+    p = new phrase(t);
+    console.log(p.getParts())
+  });
 
 }
 
