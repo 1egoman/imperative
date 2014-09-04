@@ -16,7 +16,8 @@ var _VALIDATION_TYPES = {
   }
 }
 
-module.exports.validateFilter = function(word, validator) {
+module.exports.validateFilter = function(words, index, validator) {
+  var word = words[index];
 
   // the response status
   var status = true;

@@ -17,7 +17,7 @@ module.exports = function(wordList) {
   var self = this;
 
   // get object definitioans
-  var CATEGORIES = JSON.parse( fs.readFileSync("config/object_defs.json") ).categories;
+  var CATEGORIES = require("./config/object_defs.js").categories;
 
   // determine what the general idea is that
   // is being commanded
@@ -32,13 +32,13 @@ module.exports = function(wordList) {
 
         // see if the word matches...
         // console.log(word, cat, wV.validateFilter(word, cat))
-        if ( wV.validateFilter(word, cat) ) {
+        if ( wV.validateFilter(self.words, wct, cat) ) {
 
           // apply the filter
           if (cat.then.value !== undefined && cat.then.value.length == 0) {
             self.words[wct] = undefined;
           } else {
-            self.words[wct] = cat.then;
+            self.words[wct] = _.extend(cat.then, {word: word});
           }
         }
 

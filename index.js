@@ -26,7 +26,7 @@ var phrase = function(textual) {
   var self = this;
 
   // get verb identifiers
-  var IDENT = JSON.parse( fs.readFileSync("config/verb_identifiers.json") ).isVerbIf;
+  var IDENT = require("./config/verb_identifiers.js").isVerbIf;
 
   // Split up a sentence into its general parts:
   // subject (most likely you),
@@ -73,8 +73,10 @@ var phrase = function(textual) {
   */
   this.rateVerbs = function() {
 
+    var allWords = this.getWords();
+
     // create data structure
-    var words = _.map(this.getWords(), function(w) {
+    var words = _.map(allWords, function(w) {
       return {
         word: w,
         prob: 0,
@@ -86,14 +88,14 @@ var phrase = function(textual) {
     });
 
     // for each word
-    _.each(words, function(word) {
+    _.each(words, function(word, index) {
 
 
       // look through patterns
       _.each(IDENT, function(identifier) {
 
         // the tests: this is where the probability is ranked
-        if ( wV.validateFilter(word.word, identifier) ) {
+        if ( wV.validateFilter(allWords, index, identifier) ) {
           // increment probability
           word.prob += identifier.then.weight || 1;
           identifier.then.tense && word.possibles.tenses.push(identifier.then.tense);
@@ -132,14 +134,19 @@ var tests = function(){
   // test phrases
   PHR = [
     "what is the time in london?",
-    "time in london"
+    "time in london",
+    "get me a beer"
   ]
 
+  // test each one
   _.each(PHR, function(t) {
-    console.log("phrase:", t);
+    console.log("========================", "\nphrase:", t);
     p = new phrase(t);
-    console.log(p.getParts())
+    pts = p.getParts();
+    console.log(pts.verb)
+    console.log(pts.object)
   });
+  console.log("========================");
 
 }
 
