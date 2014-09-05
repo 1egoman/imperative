@@ -86,6 +86,15 @@ module.exports = {
       }
     },
 
+    {
+      "value": {
+        "equalTo": "date"
+      },
+      "then": {
+        "means": CONCEPTS.ABSTRACT.DATE
+      }
+    },
+
 
     /**
       Some beverages
