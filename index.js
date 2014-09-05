@@ -28,6 +28,13 @@ var phrase = function(textual) {
   // get verb identifiers
   var IDENT = require("./config/verb_identifiers.js").isVerbIf;
 
+  // Get the most likely word in the sentence to be a verb
+  this.getBestVerb = function() {
+    return _.max(this.rateVerbs(), function(i) {
+      return i.prob;
+    });
+  }
+
   // Split up a sentence into its general parts:
   // subject (most likely you),
   // verb, and
@@ -37,9 +44,7 @@ var phrase = function(textual) {
     var words = this.getWords();
 
     // get the most likely verb (aka highest probability)
-    var mostLikelyVerb = _.max(this.rateVerbs(), function(i) {
-      return i.prob;
-    });
+    var mostLikelyVerb = tis.getBestVerb();
 
     // is there even a verb in the sentence?
     if (mostLikelyVerb.prob === 0)
