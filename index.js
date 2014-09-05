@@ -140,9 +140,15 @@ var tests = function(){
   // test each one
   _.each(PHR, function(t) {
     console.log("========================", "\nphrase:", t);
+
+    // output
     p = new phrase(t);
     pts = p.getParts();
-    console.log(pts.verb)
+    console.log(
+      pts.verb.word,
+      "->",
+      pts.verb.possibles
+    );
     console.log(pts.object)
   });
   console.log("========================");

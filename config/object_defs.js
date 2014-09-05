@@ -86,6 +86,10 @@ module.exports = {
       }
     },
 
+    /**
+      Recognise possible places and times
+    */
+
     {
       "word": {
         "index": -1,
