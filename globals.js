@@ -23,7 +23,6 @@ module.exports.CONCEPTS = {
     },
 
     EVENT: {
-      ALL: "CONCEPTS.ENTITY.EVENT",
       WHEN: "CONCEPTS.ENTITY.EVENT.WHEN",
       WHERE: "CONCEPTS.ENTITY.EVENT.WHERE",
     }

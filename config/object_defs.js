@@ -86,6 +86,35 @@ module.exports = {
       }
     },
 
+
+    /**
+      Some beverages
+    */
+    {
+      "value": {
+        "equalTo": "soda"
+      },
+      "then": {
+        "means": CONCEPTS.ENTITY.CONSUMABLES.DRINK
+      }
+    },
+    {
+      "value": {
+        "equalTo": "water"
+      },
+      "then": {
+        "means": CONCEPTS.ENTITY.CONSUMABLES.DRINK
+      }
+    },
+    {
+      "value": {
+        "equalTo": "beer"
+      },
+      "then": {
+        "means": CONCEPTS.ENTITY.CONSUMABLES.DRINK
+      }
+    },
+
     /**
       Recognise possible places and times
     */
@@ -96,7 +125,7 @@ module.exports = {
         "equalTo": "in"
       },
       "then": {
-        "means": CONCEPTS.ENTITY.EVENT.ALL
+        "means": CONCEPTS.ENTITY.EVENT
       }
     }
 
