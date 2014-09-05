@@ -44,7 +44,7 @@ var phrase = function(textual) {
     var words = this.getWords();
 
     // get the most likely verb (aka highest probability)
-    var mostLikelyVerb = tis.getBestVerb();
+    var mostLikelyVerb = this.getBestVerb();
 
     // is there even a verb in the sentence?
     if (mostLikelyVerb.prob === 0)
@@ -139,7 +139,8 @@ var tests = function(){
   PHR = [
     "what is the time in london?",
     "time in london",
-    "get me a beer"
+    "get me a beer",
+    "get me a soda"
   ]
 
   // test each one

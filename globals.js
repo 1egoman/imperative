@@ -32,7 +32,8 @@ module.exports.CONCEPTS = {
     Abstract: concepts that aren't physical
   */
   ABSTRACT: {
-    TIME: "CONCEPTS.ABSTRACT.TIME"
+    TIME: "CONCEPTS.ABSTRACT.TIME",
+    DATE: "CONCEPTS.ABSTRACT.DATE"
   }
 }
 
